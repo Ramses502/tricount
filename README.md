@@ -34,7 +34,6 @@
   POST "/expense"
 
     {
-      "id":1,
       "title":"Gasto por cáncer de pene",
       "quantity":12
     }
