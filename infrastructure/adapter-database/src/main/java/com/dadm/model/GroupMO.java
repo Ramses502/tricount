@@ -29,6 +29,7 @@ public class GroupMO {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "groups")
-    private List<UserMO> users = new ArrayList<UserMO>();
+    //@ManyToMany(mappedBy = "groups")
+    @OneToMany(mappedBy = "group")
+    private List<UserGroupMO> users = new ArrayList<UserGroupMO>();
 }

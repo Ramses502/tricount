@@ -27,6 +27,11 @@ public class GroupUseCase implements GroupPort {
     }
 
     @Override
+    public List<Group> getAllGroupsByUserName(String name) {
+        return groupDBPort.getAllGroupsByUserName(name);
+    }
+
+    @Override
     public Group get(Long id) {
         return groupDBPort.get(id);
     }

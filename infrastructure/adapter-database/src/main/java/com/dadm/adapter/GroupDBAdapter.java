@@ -32,6 +32,14 @@ public class GroupDBAdapter implements GroupDBPort {
     }
 
     @Override
+    public List<Group> getAllGroupsByUserName(String name) {
+        return groupRepository.getAllGroupsByUserName(name)
+                .stream()
+                .map(mapper::toDomain)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Group get(Long id) {
         return mapper.toDomain(groupRepository.getReferenceById(id));
     }

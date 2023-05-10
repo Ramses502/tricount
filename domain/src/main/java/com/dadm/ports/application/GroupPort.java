@@ -8,6 +8,8 @@ public interface GroupPort {
 
     List<Group> getAllGroups();
 
+    List<Group> getAllGroupsByUserName(String name);
+
     Group get(Long id);
 
     void createGroup(Group group);

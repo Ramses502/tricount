@@ -29,6 +29,14 @@ public class GroupController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/get_all_my_groups")
+    public List<GroupDTO> getAllByUserName(@RequestParam String userName){
+        return groupPort.getAllGroupsByUserName(userName)
+                .stream()
+                .map(mapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
     @GetMapping("/get")
     public GroupDTO get(@RequestParam Long id){
         return mapper.toDTO(groupPort.get(id));

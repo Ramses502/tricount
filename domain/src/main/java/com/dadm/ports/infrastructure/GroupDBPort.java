@@ -9,6 +9,8 @@ public interface GroupDBPort {
 
     List<Group> getAllGroups();
 
+    List<Group> getAllGroupsByUserName(String name);
+
     Group get(Long id);
 
     Group getNoUsers(Long id);
