@@ -1,0 +1,12 @@
+com\dadm\model\ExpenseDTO.class
+com\dadm\adapter\ExpenseController.class
+com\dadm\model\GroupDTO.class
+com\dadm\adapter\GroupController.class
+com\dadm\mapper\GroupRestMapper.class
+com\dadm\mapper\UserRestMapperImpl.class
+com\dadm\model\UserDTO.class
+com\dadm\mapper\GroupRestMapperImpl.class
+com\dadm\mapper\UserRestMapper.class
+com\dadm\adapter\UserController.class
+com\dadm\mapper\ExpenseRestMapper.class
+com\dadm\mapper\ExpenseRestMapperImpl.class
