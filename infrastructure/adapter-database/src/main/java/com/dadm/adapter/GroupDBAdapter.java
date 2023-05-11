@@ -41,12 +41,12 @@ public class GroupDBAdapter implements GroupDBPort {
 
     @Override
     public Group get(Long id) {
-        return mapper.toDomain(groupRepository.getReferenceById(id));
+        return mapper.toDomain(groupRepository.getOne(id));
     }
 
     @Override
     public Group getNoUsers(Long id) {
-        return mapperNoUsers.toDomainNoUsers(groupRepository.getReferenceById(id));
+        return mapperNoUsers.toDomainNoUsers(groupRepository.getOne(id));
     }
 
     @Override

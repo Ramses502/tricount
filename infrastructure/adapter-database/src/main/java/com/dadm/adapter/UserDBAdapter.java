@@ -37,13 +37,13 @@ public class UserDBAdapter implements UserDBPort {
 
     @Override
     public User get(String name) {
-        UserMO userMO = userRepository.getReferenceById(name);
+        UserMO userMO = userRepository.getOne(name);
         return mapper.toDomain(userMO);
     }
 
     @Override
     public User getNoGroups(String name) {
-        UserMO userMO = userRepository.getReferenceById(name);
+        UserMO userMO = userRepository.getOne(name);
         return noGroupsMapper.toDomainNoGroups(userMO);
     }
 

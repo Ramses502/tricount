@@ -32,12 +32,12 @@ public class ExpenseDBAdapter implements ExpenseDBPort {
 
     @Override
     public Expense get(Long id) {
-        return mapper.toDomain(expenseRepository.getReferenceById(id));
+        return mapper.toDomain(expenseRepository.getOne(id));
     }
 
     @Override
     public Expense getNoUsers(Long id) {
-        return mapperNoUsers.toDomainNoUsers(expenseRepository.getReferenceById(id));
+        return mapperNoUsers.toDomainNoUsers(expenseRepository.getOne(id));
     }
 
     @Override
