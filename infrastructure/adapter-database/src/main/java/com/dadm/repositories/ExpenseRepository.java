@@ -15,7 +15,7 @@ public interface ExpenseRepository extends JpaRepository<ExpenseMO, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO user_expense (user_name, expense_id) SELECT U.name, :expenseId FROM UserMO U JOIN user_group UG ON U.name = UG.user_name WHERE UG.group_id = :groupId", nativeQuery = true)
+    @Query(value = "INSERT INTO user_expense (user_name, expense_id) SELECT U.name, :expenseId FROM usermo U JOIN user_group UG ON U.name = UG.user_name WHERE UG.group_id = :groupId", nativeQuery = true)
     void insertUsersFromGroupToExpense(Long groupId, Long expenseId);
 
 }
