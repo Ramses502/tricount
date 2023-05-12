@@ -7,6 +7,7 @@ import com.dadm.ports.infrastructure.UserDBPort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
@@ -51,5 +52,11 @@ public class UserUseCase implements UserPort {
         }else{
             throw new LoginException();
         }
+    }
+
+    @Override
+    public Double getDebtFromSpecificGroup(String name, Long groupId) {
+        Map<String, Double> userDebtGroup = userDBPort.getUserDebtFromGroup(groupId);
+        return userDebtGroup.get(name);
     }
 }

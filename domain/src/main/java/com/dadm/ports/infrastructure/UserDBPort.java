@@ -5,6 +5,7 @@ import com.dadm.model.Group;
 import com.dadm.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserDBPort {
 
@@ -25,4 +26,8 @@ public interface UserDBPort {
     void removeGroupFromUser(String userName, Group group);
 
     void removeExpenseFromUser(String name, Expense expense);
+
+    void insertDebt(Long expenseId, Long groupId, Double debt);
+
+    Map<String, Double> getUserDebtFromGroup(Long groupId);
 }

@@ -1,8 +1,6 @@
 package com.dadm.services;
 
 import com.dadm.model.Expense;
-import com.dadm.model.Group;
-import com.dadm.model.User;
 import com.dadm.ports.application.ExpensePort;
 import com.dadm.ports.infrastructure.ExpenseDBPort;
 import com.dadm.ports.infrastructure.UserDBPort;
@@ -49,18 +47,19 @@ public class ExpenseUseCase implements ExpensePort {
     @Override
     public void addUsersToExpense(Long groupId, Long expenseId) {
         expenseDBPort.insertUsersFromGroupToExpense(groupId, expenseId);
-    }
-
-    @Override
-    public double getDebt(Long expenseId) {
-        int numberOfUsers = expenseDBPort.getUsersOfExpense(expenseId);
-        double quantity = expenseDBPort.getNoUsers(expenseId).getQuantity();
-        return quantity / numberOfUsers;
+        calculateDebt(expenseId, groupId);
     }
 
     @Override
     public void removeUserFromGroup(Long expenseId, String name) {
         Expense expense = expenseDBPort.getNoUsers(expenseId);
         userDBPort.removeExpenseFromUser(name, expense);
+    }
+
+    public void calculateDebt(Long expenseId, Long groupId) {
+        int numberOfUsers = expenseDBPort.getUsersOfExpense(expenseId);
+        double quantity = expenseDBPort.getNoUsers(expenseId).getQuantity();
+        double debt = quantity / numberOfUsers;
+        userDBPort.insertDebt(expenseId, groupId, debt);
     }
 }

@@ -1,15 +1,14 @@
 package com.dadm.adapter;
 
 import com.dadm.mapper.*;
-import com.dadm.model.Expense;
-import com.dadm.model.Group;
-import com.dadm.model.User;
-import com.dadm.model.UserMO;
+import com.dadm.model.*;
 import com.dadm.ports.infrastructure.UserDBPort;
 import com.dadm.repositories.UserRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
@@ -80,5 +79,20 @@ public class UserDBAdapter implements UserDBPort {
     @Override
     public void removeExpenseFromUser(String userName, Expense expense) {
         userRepository.removeExpenseFromUser(userName, expenseMapper.toMO(expense));
+    }
+
+    @Override
+    public void insertDebt(Long expenseId, Long groupId, Double debt) {
+        userRepository.insertDebt(expenseId, groupId, debt);
+    }
+
+    @Override
+    public Map<String, Double> getUserDebtFromGroup(Long groupId) {
+        List<UserGroupMO> usersFromGroup = userRepository.getDebtFromGroup(groupId);
+        Map<String, Double> userDebts = new HashMap<>();
+        for (UserGroupMO user : usersFromGroup){
+            userDebts.put(user.getUser().getName(), user.getDebt());
+        }
+        return userDebts;
     }
 }

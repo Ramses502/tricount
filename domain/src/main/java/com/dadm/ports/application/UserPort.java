@@ -17,4 +17,6 @@ public interface UserPort {
     void deleteUser(String name);
 
     User login(String name, String password);
+
+    Double getDebtFromSpecificGroup(String name, Long groupId);
 }

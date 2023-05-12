@@ -34,6 +34,11 @@ public class UserController {
         return mapper.toDTO(userPort.get(name));
     }
 
+    @GetMapping("/debt_from_group")
+    public Double getDebt(@RequestParam String name, @RequestParam Long groupId) {
+        return userPort.getDebtFromSpecificGroup(name, groupId);
+    }
+
     @GetMapping("/login")
     public UserDTO login(@RequestParam String name, @RequestParam String password) throws LoginException {
         return mapper.toDTO(userPort.login(name, password));

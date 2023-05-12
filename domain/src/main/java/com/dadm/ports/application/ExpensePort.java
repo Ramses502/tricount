@@ -18,7 +18,5 @@ public interface ExpensePort {
 
     void addUsersToExpense(Long groupId, Long expenseId);
 
-    double getDebt(Long expenseId);
-
     void removeUserFromGroup(Long expenseId, String userName);
 }

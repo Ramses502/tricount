@@ -55,11 +55,6 @@ public class ExpenseController {
         expensePort.removeUserFromGroup(expenseId, userName);
     }
 
-    @GetMapping("/debt")
-    public double mountPerUser(@RequestParam Long expenseId){
-        return expensePort.getDebt(expenseId);
-    }
-
     @DeleteMapping
     public void delete(@RequestParam Long id){
         expensePort.deleteExpense(id);
