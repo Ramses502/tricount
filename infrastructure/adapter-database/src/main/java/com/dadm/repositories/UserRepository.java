@@ -37,4 +37,9 @@ public interface UserRepository extends JpaRepository<UserMO,String> {
     @Modifying
     @Query(value = "UPDATE user_group ug SET ug.debt = ug.debt + :debt WHERE ug.group_id = :groupId AND ug.user_name IN (SELECT ue.user_name FROM user_expense ue WHERE ue.expense_id = :expenseId)", nativeQuery = true)
     void insertDebt(@Param("expenseId") Long expenseId, @Param("groupId") Long groupId , @Param("debt") Double debt);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE user_group ug SET ug.debt = ug.debt - :money WHERE ug.user_name = :name AND ug.group_id = :groupId", nativeQuery = true)
+    void pay(@Param("name") String name, @Param("groupId") Long groupId, @Param("money") Double money);
 }

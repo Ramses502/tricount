@@ -54,6 +54,11 @@ public class UserController {
         userPort.updateUser(mapper.toDomain(userDTO));
     }
 
+    @PutMapping("/pay")
+    public void put(@RequestParam String name, @RequestParam Long groupId, @RequestParam Double money){
+        userPort.pay(name, groupId, money);
+    }
+
     @DeleteMapping
     public void delete(@RequestParam String name){
         userPort.deleteUser(name);

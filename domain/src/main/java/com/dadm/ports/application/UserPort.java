@@ -19,4 +19,6 @@ public interface UserPort {
     User login(String name, String password);
 
     Double getDebtFromSpecificGroup(String name, Long groupId);
+
+    void pay(String name, Long groupId, double money);
 }

@@ -30,4 +30,6 @@ public interface UserDBPort {
     void insertDebt(Long expenseId, Long groupId, Double debt);
 
     Map<String, Double> getUserDebtFromGroup(Long groupId);
+
+    void pay(String name, Long groupId, Double pay);
 }

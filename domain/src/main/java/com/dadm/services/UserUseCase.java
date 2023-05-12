@@ -59,4 +59,9 @@ public class UserUseCase implements UserPort {
         Map<String, Double> userDebtGroup = userDBPort.getUserDebtFromGroup(groupId);
         return userDebtGroup.get(name);
     }
+
+    @Override
+    public void pay(String name, Long groupId, double money) {
+        userDBPort.pay(name, groupId, money);
+    }
 }

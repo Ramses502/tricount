@@ -95,4 +95,9 @@ public class UserDBAdapter implements UserDBPort {
         }
         return userDebts;
     }
+
+    @Override
+    public void pay(String name, Long groupId, Double pay) {
+        userRepository.pay(name, groupId, pay);
+    }
 }
