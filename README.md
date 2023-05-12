@@ -35,6 +35,9 @@ GET "/user/login?name=Pepe&password=1234"
 ### Debt of user from group
 GET "/user/debt_from_group?name=Pepe&groupId=1"
 
+### Pay quantity
+PUT "/user/pay?name=Pepe&groupId=1&money=30"
+
 ## Expenses
 ### Create expenses
 POST "/expense"

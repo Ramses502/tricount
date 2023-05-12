@@ -46,11 +46,16 @@ public class UserUseCase implements UserPort {
 
     @Override
     public User login(String name, String password) {
-        User user = userDBPort.getNoGroups(name);
-        if(Objects.equals(user.getName(), name) && Objects.equals(user.getPassword(), password)){
+        try{
+            User user = userDBPort.getNoGroups(name);
+            if(Objects.equals(user.getName(), name) && Objects.equals(user.getPassword(), password)){
+                return user;
+            }else{
+                throw new LoginException();
+            }
+        }catch(Exception e){
+            User user = new User("error", "error");
             return user;
-        }else{
-            throw new LoginException();
         }
     }
 
