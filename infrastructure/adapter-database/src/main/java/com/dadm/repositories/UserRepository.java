@@ -20,7 +20,7 @@ public interface UserRepository extends JpaRepository<UserMO,String> {
     @Query("SELECT u FROM UserMO u JOIN u.groups g WHERE g.id = :groupId")
     List<UserMO> getUsersFromId(Long groupId);
 
-    @Query("SELECT ug FROM user_group ug JOIN ug.groups g WHERE g.id = :groupId")
+    @Query("SELECT ug FROM UserGroupMO ug JOIN ug.group g WHERE g.id = :groupId")
     List<UserGroupMO> getDebtFromGroup(Long groupId);
 
     @Transactional
