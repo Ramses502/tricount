@@ -23,6 +23,9 @@ GET "/group/get_all_my_groups?userName=Pepe"
 ### Get all expenses from a group
 GET "/group/get_expenses?groupId=1"
 
+### Get all users from a group
+GET "/group/get_users?groupId=1"
+
 ## Users
 ### Register user
 POST "/user/register"

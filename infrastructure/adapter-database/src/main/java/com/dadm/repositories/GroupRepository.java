@@ -2,6 +2,7 @@ package com.dadm.repositories;
 
 import com.dadm.model.ExpenseMO;
 import com.dadm.model.GroupMO;
+import com.dadm.model.UserMO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,4 +31,7 @@ public interface GroupRepository extends JpaRepository<GroupMO, Long> {
 
     @Query("SELECT e FROM ExpenseMO e WHERE e.groups.id = :groupId")
     List<ExpenseMO> getAllExpensesFromGroup(@Param("groupId") Long groupId);
+
+    @Query("SELECT ug.user FROM UserGroupMO ug JOIN ug.group g WHERE g.id = :groupId")
+    List<UserMO> getAllUsersFromGroup(@Param("groupId") Long groupId);
 }

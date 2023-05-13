@@ -67,4 +67,9 @@ public class GroupUseCase implements GroupPort {
     public List<Expense> getAllExpensesFromGroup(Long groupId) {
         return groupDBPort.getAllExpensesFromGroup(groupId);
     }
+
+    @Override
+    public List<User> getAllUsersFromGroup(Long groupId) {
+        return groupDBPort.getAllUsersFromGroup(groupId);
+    }
 }

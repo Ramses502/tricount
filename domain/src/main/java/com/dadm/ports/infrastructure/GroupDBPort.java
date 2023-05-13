@@ -27,4 +27,6 @@ public interface GroupDBPort {
     void insertUserIntoGroup(String userName, Long groupId);
 
     List<Expense> getAllExpensesFromGroup(Long groupId);
+
+    List<User> getAllUsersFromGroup(Long groupId);
 }

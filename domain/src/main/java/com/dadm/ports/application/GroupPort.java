@@ -2,6 +2,7 @@ package com.dadm.ports.application;
 
 import com.dadm.model.Expense;
 import com.dadm.model.Group;
+import com.dadm.model.User;
 
 import java.util.List;
 
@@ -24,4 +25,6 @@ public interface GroupPort {
     void removeUserFromGroup(Long groupId, String name);
 
     List<Expense> getAllExpensesFromGroup(Long groupId);
+
+    List<User> getAllUsersFromGroup(Long groupId);
 }
