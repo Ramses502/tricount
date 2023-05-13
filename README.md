@@ -15,7 +15,7 @@ PUT "/group/add_user?groupId=1&userName=Pepe"
 PUT "/group/remove_user?groupId=1&userName=Pepe"
 
 ### Get all groups
-GET "/group/get_all"
+GET "/group/all"
 
 ### Get all groups from one user
 GET "/group/get_all_my_groups?userName=Pepe"
