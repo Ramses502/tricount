@@ -28,6 +28,6 @@ public interface GroupRepository extends JpaRepository<GroupMO, Long> {
     @Query("SELECT ug.group FROM UserGroupMO ug JOIN ug.user u WHERE u.name = :userName")
     List<GroupMO> getAllGroupsByUserName(@Param("userName") String userName);
 
-    @Query("SELECT e.groups FROM ExpenseMO e WHERE e.groups = :groupId")
+    @Query("SELECT e FROM ExpenseMO e WHERE e.groups.id = :groupId")
     List<ExpenseMO> getAllExpensesFromGroup(@Param("groupId") Long groupId);
 }
