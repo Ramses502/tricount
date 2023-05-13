@@ -33,4 +33,7 @@ public class GroupMO {
     //@ManyToMany(mappedBy = "groups")
     @OneToMany(mappedBy = "group")
     private List<UserGroupMO> users = new ArrayList<UserGroupMO>();
+
+    @OneToMany(mappedBy = "groups")
+    private List<ExpenseMO> expenses = new ArrayList<>();
 }

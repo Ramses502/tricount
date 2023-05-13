@@ -63,5 +63,6 @@ public class ExpenseDBAdapter implements ExpenseDBPort {
     @Override
     public void insertUsersFromGroupToExpense(Long groupId, Long expenseId) {
         expenseRepository.insertUsersFromGroupToExpense(groupId, expenseId);
+        expenseRepository.insertGroupIntoExpense(groupId, expenseId);
     }
 }

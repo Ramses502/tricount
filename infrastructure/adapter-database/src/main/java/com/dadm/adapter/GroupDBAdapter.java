@@ -1,7 +1,9 @@
 package com.dadm.adapter;
 
+import com.dadm.mapper.ExpenseMapper;
 import com.dadm.mapper.GroupMapper;
 import com.dadm.mapper.GroupNoUsersMapper;
+import com.dadm.model.Expense;
 import com.dadm.model.Group;
 import com.dadm.model.User;
 import com.dadm.ports.infrastructure.GroupDBPort;
@@ -16,6 +18,7 @@ public class GroupDBAdapter implements GroupDBPort {
 
     private final GroupMapper mapper = GroupMapper.INSTANCE;
     private final GroupNoUsersMapper mapperNoUsers = GroupNoUsersMapper.INSTANCE;
+    private final ExpenseMapper expenseMapper = ExpenseMapper.INSTANCE;
 
     private final GroupRepository groupRepository;
 
@@ -72,5 +75,13 @@ public class GroupDBAdapter implements GroupDBPort {
     @Override
     public void insertUserIntoGroup(String userName, Long groupId) {
         groupRepository.insertUserIntoGroup(userName, groupId);
+    }
+
+    @Override
+    public List<Expense> getAllExpensesFromGroup(Long groupId) {
+        return groupRepository.getAllExpensesFromGroup(groupId)
+                .stream()
+                .map(expenseMapper::toDomain)
+                .collect(Collectors.toList());
     }
 }

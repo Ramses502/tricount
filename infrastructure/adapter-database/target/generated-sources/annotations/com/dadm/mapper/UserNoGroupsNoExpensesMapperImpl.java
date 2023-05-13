@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-12T20:37:14+0200",
+    date = "2023-05-13T13:10:45+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.7 (Oracle Corporation)"
 )
 public class UserNoGroupsNoExpensesMapperImpl implements UserNoGroupsNoExpensesMapper {

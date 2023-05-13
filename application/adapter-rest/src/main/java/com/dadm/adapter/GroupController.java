@@ -1,6 +1,8 @@
 package com.dadm.adapter;
 
+import com.dadm.mapper.ExpenseRestMapper;
 import com.dadm.mapper.GroupRestMapper;
+import com.dadm.model.ExpenseDTO;
 import com.dadm.model.GroupDTO;
 import com.dadm.ports.application.GroupPort;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 public class GroupController {
 
     private final GroupRestMapper mapper = GroupRestMapper.INSTANCE;
+    private final ExpenseRestMapper expenseRestMapper = ExpenseRestMapper.INSTANCE;
 
     private final GroupPort groupPort;
 
@@ -21,7 +24,7 @@ public class GroupController {
         this.groupPort = groupPort;
     }
 
-    @GetMapping("/get_all")
+    @GetMapping("/all")
     public List<GroupDTO> get(){
         return groupPort.getAllGroups()
                 .stream()
@@ -37,7 +40,15 @@ public class GroupController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get_expenses")
+    public List<ExpenseDTO> getAllExpenses(Long groupId){
+        return groupPort.getAllExpensesFromGroup(groupId)
+                .stream()
+                .map(expenseRestMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping
     public GroupDTO get(@RequestParam Long id){
         return mapper.toDTO(groupPort.get(id));
     }

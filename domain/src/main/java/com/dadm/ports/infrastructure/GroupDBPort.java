@@ -1,5 +1,6 @@
 package com.dadm.ports.infrastructure;
 
+import com.dadm.model.Expense;
 import com.dadm.model.Group;
 import com.dadm.model.User;
 
@@ -25,4 +26,5 @@ public interface GroupDBPort {
 
     void insertUserIntoGroup(String userName, Long groupId);
 
+    List<Expense> getAllExpensesFromGroup(Long groupId);
 }

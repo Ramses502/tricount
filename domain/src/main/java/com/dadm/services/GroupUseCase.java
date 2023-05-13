@@ -1,5 +1,6 @@
 package com.dadm.services;
 
+import com.dadm.model.Expense;
 import com.dadm.model.Group;
 import com.dadm.model.User;
 import com.dadm.ports.application.GroupPort;
@@ -60,5 +61,10 @@ public class GroupUseCase implements GroupPort {
     public void removeUserFromGroup(Long groupId, String name) {
         Group group = groupDBPort.getNoUsers(groupId);
         userDBPort.removeGroupFromUser(name, group);
+    }
+
+    @Override
+    public List<Expense> getAllExpensesFromGroup(Long groupId) {
+        return groupDBPort.getAllExpensesFromGroup(groupId);
     }
 }
