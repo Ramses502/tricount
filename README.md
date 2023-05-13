@@ -21,7 +21,7 @@ GET "/group/get_all"
 GET "/group/get_all_my_groups?userName=Pepe"
 
 ### Get all expenses from a group
-GET "/group/get_expenses"
+GET "/group/get_expenses?groupId=1"
 
 ## Users
 ### Register user

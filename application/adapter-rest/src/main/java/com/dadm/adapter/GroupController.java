@@ -41,7 +41,7 @@ public class GroupController {
     }
 
     @GetMapping("/get_expenses")
-    public List<ExpenseDTO> getAllExpenses(Long groupId){
+    public List<ExpenseDTO> getAllExpenses(@RequestParam Long groupId){
         return groupPort.getAllExpensesFromGroup(groupId)
                 .stream()
                 .map(expenseRestMapper::toDTO)
